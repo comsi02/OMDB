@@ -6,3 +6,10 @@ server:
       charset: UTF-8
       enabled: true
       force: true
+      
+app:
+  config:
+    apikey: c5ef16e2
+    api:
+      display: http://www.omdbapi.com/?s=Home&apikey={apikey}
+      detail: http://www.omdbapi.com/?i={index}&apikey={apikey}
