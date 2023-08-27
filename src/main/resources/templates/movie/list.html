@@ -2,6 +2,8 @@
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorate="~{layout/blocks/layout}">
       
-      <span class="row_status" th:utext="${test1}"></span>
-      <span class="row_status" th:utext="${test2}"></span>
+      <span class="row_status" th:utext="${test1.getResponse}"></span><br>
+      <span class="row_status" th:utext="${test1.getSearch[3].getTitle}"></span><br>
+      <span class="row_status" th:utext="${test1.getSearch[3].getYear}"></span><br>
+      <span class="row_status" th:utext="${test2.getTitle}"></span><br>
 </html>
