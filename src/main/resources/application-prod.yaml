@@ -13,7 +13,7 @@ thymeleaf:
   cache: false
 app:
   config:
-    apikey: c5ef16e2
-    api:
-      display: http://www.omdbapi.com/?s=Home&apikey={apikey}
-      detail: http://www.omdbapi.com/?i={index}&apikey={apikey}
+    omdb:
+      api-scheme: http
+      api-host: www.omdbapi.com
+      api-key: c5ef16e2
