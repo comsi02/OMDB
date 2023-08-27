@@ -32,10 +32,12 @@ public class OmdbApiService {
 	@Value("${app.config.omdb.api-key}")
 	String omdbApiKey;
 
-	public MovieListDto getMovieList() {
+	public MovieListDto getMovieList(String searchText, int page) {
 		ResponseEntity<MovieListDto> responseMovieListDto = omdbWebClient.get()
 				.uri(uriBuilder -> uriBuilder.scheme("http").host(omdbApiHost).queryParam("apikey", omdbApiKey)
-						.queryParam("s", "home").build())
+						.queryParam("s", searchText)
+						.queryParam("page", page)
+						.build())
 				.accept(MediaType.APPLICATION_JSON).retrieve().toEntity(MovieListDto.class).log().block();
 
 		return responseMovieListDto.getBody();

@@ -56,7 +56,7 @@ public class MovieDetailDto {
 	List<RatingDto> ratings;
 
 	@JsonProperty("Metascore")
-	int metascore;
+	String metascore;
 
 	@JsonProperty("imdbRating")
 	BigDecimal imdbRating;
@@ -83,7 +83,7 @@ public class MovieDetailDto {
 	String website;
 
 	@JsonProperty("Response")
-	Boolean Response;
+	Boolean response;
 
 	public String getTitle() {
 		return title;
@@ -145,7 +145,7 @@ public class MovieDetailDto {
 		return ratings;
 	}
 
-	public int getMetascore() {
+	public String getMetascore() {
 		return metascore;
 	}
 
@@ -182,6 +182,6 @@ public class MovieDetailDto {
 	}
 
 	public Boolean getResponse() {
-		return Response;
+		return response;
 	}
 }

@@ -1,9 +1,31 @@
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
-      layout:decorate="~{layout/blocks/layout}">
-      
-      <span class="row_status" th:utext="${test1.getResponse}"></span><br>
-      <span class="row_status" th:utext="${test1.getSearch[3].getTitle}"></span><br>
-      <span class="row_status" th:utext="${test1.getSearch[3].getYear}"></span><br>
-      <span class="row_status" th:utext="${test2.getTitle}"></span><br>
+<!-- <html lang="en"> -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+	  <div th:if="${movieListDto?.getResponse()}">
+
+	  <table style="border=1">
+      <tr th:each="data, iterstat: ${movieListDto.getSearch()}">
+      	<td>
+					<a th:href="@{'/movie/detail/'+${data.getImdbId}}">
+	      	<img th:src="${data.getPoster}"></img>
+	      	</a>
+	     </td>
+      	<td>
+	      	<div th:text="${data.getTitle}"></div>
+      	</td>
+      	<td>
+	      	<div th:text="${data.getYear}"></div>
+      	</td>
+      	<td>
+	      	<div th:text="${data.getType}"></div>
+      	</td>
+      </tr>
+      <table>
+      </div>
+
+
+	  	<div th:unless="${movieListDto?.getResponse()}">
+	  		There is no result
+	  	</div>
+
 </html>

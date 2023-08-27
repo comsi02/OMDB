@@ -15,7 +15,7 @@ public class MovieListDto {
 	String totalResults;
 
 	@JsonProperty("Response")
-	String Response;
+	Boolean response;
 
 	public List<MovieDetailDto> getSearch() {
 		return search;
@@ -25,7 +25,7 @@ public class MovieListDto {
 		return totalResults;
 	}
 
-	public String getResponse() {
-		return Response;
+	public Boolean getResponse() {
+		return response;
 	}
 }
