@@ -21,24 +21,4 @@ public class MovieBriefDto {
 
   @JsonProperty("Poster")
   String poster;
-
-  public String getTitle() {
-    return title;
-  }
-
-  public String getYear() {
-    return year;
-  }
-
-  public String getImdbId() {
-    return imdbId;
-  }
-
-  public String getType() {
-    return type;
-  }
-
-  public String getPoster() {
-    return poster;
-  }
 }

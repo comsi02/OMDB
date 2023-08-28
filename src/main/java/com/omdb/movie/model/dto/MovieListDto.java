@@ -17,16 +17,4 @@ public class MovieListDto {
 
   @JsonProperty("Response")
   Boolean response;
-
-  public List<MovieBriefDto> getSearch() {
-    return search;
-  }
-
-  public int getTotalResults() {
-    return totalResults;
-  }
-
-  public Boolean getResponse() {
-    return response;
-  }
 }
