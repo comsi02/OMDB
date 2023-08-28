@@ -1,48 +1,205 @@
-<!-- <html lang="en"> -->
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<div th:if="${movieDetailDto?.getResponse}">
-	<div th:text="${movieDetailDto.getTitle}"></div>
-	<div th:text="${movieDetailDto.getYear}"></div>
-	<div th:text="${movieDetailDto.getReleased}"></div>
-	<div th:text="${movieDetailDto.getRuntime}"></div>
-	<div th:text="${movieDetailDto.getGenre}"></div>
-	<div th:text="${movieDetailDto.getDirector}"></div>
-	<div th:text="${movieDetailDto.getActors}"></div>
-	<div th:text="${movieDetailDto.getPlot}"></div>
-	<div th:text="${movieDetailDto.getLanguage}"></div>
-	<div th:text="${movieDetailDto.getCountry}"></div>
-	<div th:text="${movieDetailDto.getAwards}"></div>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<div th:unless="${movieDetailDto.getPoster} == 'N/A'">
-		<img th:src="${movieDetailDto.getPoster}" style="width: 200px; height: 240px"></img>
+	<title>Movie</title>
+
+	<!-- ================= Favicon ================== -->
+	<!-- Standard -->
+	<link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+	<!-- Retina iPad Touch Icon-->
+	<link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+	<!-- Retina iPhone Touch Icon-->
+	<link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+	<!-- Standard iPad Touch Icon-->
+	<link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+	<!-- Standard iPhone Touch Icon-->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+	<!-- Common -->
+	<link th:href="@{'/static/theme/css/lib/font-awesome.min.css'}" rel="stylesheet">
+	<link th:href="@{'/static/theme/css/lib/themify-icons.css'}" rel="stylesheet">
+	<link th:href="@{'/static/theme/css/lib/menubar/sidebar.css'}" rel="stylesheet">
+	<link th:href="@{'/static/theme/css/lib/bootstrap.min.css'}" rel="stylesheet">
+	<link th:href="@{'/static/theme/css/lib/helper.css'}" rel="stylesheet">
+	<link th:href="@{'/static/theme/css/style.css'}" rel="stylesheet">
+</head>
+
+<body>
+	<div class="content-wrap">
+		<div class="main">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-8 p-r-0 title-margin-right">
+						<div class="page-header">
+							<div class="page-title">
+								<h1>Movie,
+									<span>Factory</span>
+								</h1>
+							</div>
+						</div>
+					</div>
+					<!-- /# column -->
+					<div class="col-lg-4 p-l-0 title-margin-left">
+						<div class="page-header">
+							<div class="page-title">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item">
+										<a href="#">Development by</a>
+									</li>
+									<li class="breadcrumb-item active">Andrew Song</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+					<!-- /# column -->
+				</div>
+
+				<!-- /# row -->
+				<section id="main-content">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="user-profile">
+										<div th:if="${movieDetailDto?.getResponse}">
+											<div class="row">
+												<div class="col-lg-4">
+													<div class="user-photo m-b-30">
+
+														<!-- poster -->
+														<img class="img=fluid"
+															th:src="${movieDetailDto.getPoster} == 'N/A' ? @{'/static/images/coming-soon.png'} : ${movieDetailDto.getPoster}"></img>
+
+													</div>
+												</div>
+												<div class="col-lg-8">
+													<div class="user-profile-name"
+														th:text="${movieDetailDto.getTitle}+' ('+ ${movieDetailDto.getYear} +')'"></div>
+													<div class="user-Location">
+														<i class="ti-location-pin" th:text="' ' + ${movieDetailDto.getCountry}"></i>
+													</div>
+														<button type="button" class="btn-sm btn-primary m-b-10 m-l-5 float-right" onclick="history.back();">Back</button>
+													<div class="user-job-title" th:text="${movieDetailDto.getReleased}"></div>
+													<div class="user-job-title" th:text="${movieDetailDto.getRuntime}"></div>
+													<div class="ratings">
+														<h4>Ratings</h4>
+														<div class="rating-star">
+															<span th:text="${movieDetailDto.getImdbRating}"></span>
+															<i class="ti-star color-primary"></i>
+															<i
+																th:class="${movieDetailDto.getImdbRating} > 3 ? 'ti-star color-primary' : 'ti-star'"></i>
+															<i
+																th:class="${movieDetailDto.getImdbRating} > 5 ? 'ti-star color-primary' : 'ti-star'"></i>
+															<i
+																th:class="${movieDetailDto.getImdbRating} > 7 ? 'ti-star color-primary' : 'ti-star'"></i>
+															<i
+																th:class="${movieDetailDto.getImdbRating} > 9 ? 'ti-star color-primary' : 'ti-star'"></i>
+														</div>
+													</div>
+													<div class="custom-tab user-profile-tab">
+														<div class="tab-content">
+															<div role="tabpanel" class="tab-pane active" id="1">
+
+																<ul class="nav nav-tabs" role="tablist">
+																	<li role="presentation" class="active"></li>
+																</ul>
+
+																<div class="contact-information">
+																	<h4>basic information</h4>
+																	<div class="phone-content">
+																		<span class="contact-title">Genre:</span>
+																		<span class="movie" th:text="${movieDetailDto.getGenre}"></span>
+																	</div>
+																	<div class="movie-content">
+																		<span class="contact-title">Director:</span>
+																		<span class="movie" th:text="${movieDetailDto.getDirector}"></span>
+																	</div>
+																	<div class="movie-content">
+																		<span class="contact-title">Writer:</span>
+																		<span class="movie" th:text="${movieDetailDto.getWriter}"></span>
+																	</div>
+																	<div class="movie-content">
+																		<span class="contact-title">Actors:</span>
+																		<span class="movie" th:text="${movieDetailDto.getActors}"></span>
+																	</div>
+																	<div class="movie-content">
+																		<span class="contact-title">Language:</span>
+																		<span class="movie" th:text="${movieDetailDto.getLanguage}"></span>
+																	</div>
+																	<div class="movie-content">
+																		<span class="contact-title">Country:</span>
+																		<span class="movie" th:text="${movieDetailDto.getCountry}"></span>
+																	</div>
+																	<div class="movie-content">
+																		<span class="contact-title">Plot:</span>
+																		<span class="movie" th:text="${movieDetailDto.getPlot}"></span>
+																	</div>
+																</div>
+
+																<ul class="nav nav-tabs" role="tablist">
+																	<li role="presentation" class="active"></li>
+																</ul>
+																<div class="basic-information">
+																	<h4>Sub information</h4>
+																	<div class="movie-content">
+																		<span class="contact-title">Meta Score:</span>
+																		<span class="movie" th:text="${movieDetailDto.getMetascore}"></span>
+																	</div>
+																	<div class="movie-content">
+																		<span class="contact-title">Box Office:</span>
+																		<span class="movie" th:text="${movieDetailDto.getBoxOffice}"></span>
+																	</div>
+																</div>
+															</div>
+															<ul class="nav nav-tabs" role="tablist">
+																<li role="presentation" class="active"></li>
+															</ul>
+															<div class="basic-information">
+																<h4>Rating information</h4>
+																<div class="movie-content" th:each="data, iterstat: ${movieDetailDto.getRatings()}">
+																	<span class="contact-title" th:text="${data.getSource}"></span>
+																	<span class="movie" th:text="${data.getValue}"></span>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+											<div th:unless="${movieDetailDto?.getResponse}">
+												There is no information
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="footer">
+									<p>2023 © Movie Factory. -
+										<a href="https://www.omdbapi.com/">omdbapi.com</a>
+									</p>
+								</div>
+							</div>
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
 	</div>
 
-	<div th:if="${movieDetailDto.getPoster} == 'N/A'">
-		<img th:src="@{'/static/images/coming-soon.png'}" style="width: 200px; height: 240px"></img>
-	</div>
-
-	<table>
-		<tr th:each="data, iterstat: ${movieDetailDto.getRatings()}">
-			<td th:text="${data.getSource}"></td>
-			<td th:text="${data.getValue}"></td>
-		</tr>
-	</table>
-
-	<div th:text="${movieDetailDto.getMetascore}"></div>
-	<div th:text="${movieDetailDto.getImdbRating}"></div>
-	<div th:text="${movieDetailDto.getImdbVotes}"></div>
-	<div th:text="${movieDetailDto.getImdbId}"></div>
-	<div th:text="${movieDetailDto.getType}"></div>
-	<div th:text="${movieDetailDto.getDvd}"></div>
-	<div th:text="${movieDetailDto.getBoxOffice}"></div>
-	<div th:text="${movieDetailDto.getProduction}"></div>
-	<div th:text="${movieDetailDto.getWebsite}"></div>
-	<div th:text="${movieDetailDto.getResponse}"></div>
-</div>
-
-<div th:unless="${movieDetailDto?.getResponse}">
-	There is no result
-</div>
-
+	<!-- Common -->
+	<script th:src="@{'/static/theme/js/lib/jquery.min.js'}"></script>
+	<script th:src="@{'/static/theme/js/lib/jquery.nanoscroller.min.js'}"></script>
+	<script th:src="@{'/static/theme/js/lib/menubar/sidebar.js'}"></script>
+	<script th:src="@{'/static/theme/js/lib/preloader/pace.min.js'}"></script>
+	<script th:src="@{'/static/theme/js/lib/bootstrap.min.js'}"></script>
+	<script th:src="@{'/static/theme/js/scripts.js'}"></script
+</body>
 </html>

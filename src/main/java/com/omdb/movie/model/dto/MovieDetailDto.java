@@ -28,7 +28,7 @@ public class MovieDetailDto {
   @JsonProperty("Genre")
   String genre;
 
-  @JsonProperty("Driector")
+  @JsonProperty("Director")
   String director;
 
   @JsonProperty("Writer")
