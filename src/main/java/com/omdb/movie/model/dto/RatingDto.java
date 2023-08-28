@@ -7,17 +7,17 @@ import lombok.Data;
 @Data
 public class RatingDto {
 
-	@JsonProperty("Source")
-	String source;
+  @JsonProperty("Source")
+  String source;
 
-	@JsonProperty("Value")
-	String value;
+  @JsonProperty("Value")
+  String value;
 
-	public String getSource() {
-		return source;
-	}
+  public String getSource() {
+    return source;
+  }
 
-	public String getValue() {
-		return value;
-	}
+  public String getValue() {
+    return value;
+  }
 }

@@ -17,26 +17,26 @@ import jakarta.servlet.http.HttpServletRequest;
 @RequestMapping("movie")
 public class MovieController {
 
-	@Autowired
-	OmdbApiService omdbApiService;
+  @Autowired
+  OmdbApiService omdbApiService;
 
-	@RequestMapping(value = "/list")
-	public String list(Model model, HttpServletRequest request,
-			@RequestParam(value = "search", defaultValue = "home") String search,
-			@RequestParam(value = "page", defaultValue = "1") int page) {
+  @RequestMapping(value = "/list")
+  public String list(Model model, HttpServletRequest request,
+      @RequestParam(value = "search", defaultValue = "home") String search,
+      @RequestParam(value = "page", defaultValue = "1") int page) {
 
-		MovieListDto movieListDto = omdbApiService.getMovieList(search, page);
-		model.addAttribute("movieListDto", movieListDto);
+    MovieListDto movieListDto = omdbApiService.getMovieList(search, page);
+    model.addAttribute("movieListDto", movieListDto);
 
-		return "movie/list";
-	}
+    return "movie/list";
+  }
 
-	@RequestMapping(value = "/detail/{imdbId}")
-	public String detail(Model model, HttpServletRequest request, @PathVariable(required = true) String imdbId) {
+  @RequestMapping(value = "/detail/{imdbId}")
+  public String detail(Model model, HttpServletRequest request, @PathVariable(required = true) String imdbId) {
 
-		MovieDetailDto movieDetailDto = omdbApiService.getMovieDetail(imdbId);
-		model.addAttribute("movieDetailDto", movieDetailDto);
+    MovieDetailDto movieDetailDto = omdbApiService.getMovieDetail(imdbId);
+    model.addAttribute("movieDetailDto", movieDetailDto);
 
-		return "movie/detail";
-	}
+    return "movie/detail";
+  }
 }

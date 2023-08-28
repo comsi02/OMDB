@@ -10,178 +10,178 @@ import lombok.Data;
 @Data
 public class MovieDetailDto {
 
-	@JsonProperty("Title")
-	String title;
+  @JsonProperty("Title")
+  String title;
 
-	@JsonProperty("Year")
-	String year;
+  @JsonProperty("Year")
+  String year;
 
-	@JsonProperty("Rated")
-	String rated;
+  @JsonProperty("Rated")
+  String rated;
 
-	@JsonProperty("Released")
-	String released;
+  @JsonProperty("Released")
+  String released;
 
-	@JsonProperty("Runtime")
-	String runtime;
+  @JsonProperty("Runtime")
+  String runtime;
 
-	@JsonProperty("Genre")
-	String genre;
+  @JsonProperty("Genre")
+  String genre;
 
-	@JsonProperty("Driector")
-	String director;
+  @JsonProperty("Driector")
+  String director;
 
-	@JsonProperty("Writer")
-	String writer;
+  @JsonProperty("Writer")
+  String writer;
 
-	@JsonProperty("Actors")
-	String actors;
+  @JsonProperty("Actors")
+  String actors;
 
-	@JsonProperty("Plot")
-	String plot;
+  @JsonProperty("Plot")
+  String plot;
 
-	@JsonProperty("Language")
-	String language;
+  @JsonProperty("Language")
+  String language;
 
-	@JsonProperty("Country")
-	String country;
+  @JsonProperty("Country")
+  String country;
 
-	@JsonProperty("Awards")
-	String awards;
+  @JsonProperty("Awards")
+  String awards;
 
-	@JsonProperty("Poster")
-	String poster;
+  @JsonProperty("Poster")
+  String poster;
 
-	@JsonProperty("Ratings")
-	List<RatingDto> ratings;
+  @JsonProperty("Ratings")
+  List<RatingDto> ratings;
 
-	@JsonProperty("Metascore")
-	String metascore;
+  @JsonProperty("Metascore")
+  String metascore;
 
-	@JsonProperty("imdbRating")
-	BigDecimal imdbRating;
+  @JsonProperty("imdbRating")
+  BigDecimal imdbRating;
 
-	@JsonProperty("imdbVotes")
-	String imdbVotes;
+  @JsonProperty("imdbVotes")
+  String imdbVotes;
 
-	@JsonProperty("imdbID")
-	String imdbId;
+  @JsonProperty("imdbID")
+  String imdbId;
 
-	@JsonProperty("Type")
-	String type;
+  @JsonProperty("Type")
+  String type;
 
-	@JsonProperty("DVD")
-	String dvd;
+  @JsonProperty("DVD")
+  String dvd;
 
-	@JsonProperty("BoxOffice")
-	String boxOffice;
+  @JsonProperty("BoxOffice")
+  String boxOffice;
 
-	@JsonProperty("Production")
-	String production;
+  @JsonProperty("Production")
+  String production;
 
-	@JsonProperty("Website")
-	String website;
+  @JsonProperty("Website")
+  String website;
 
-	@JsonProperty("Response")
-	Boolean response;
+  @JsonProperty("Response")
+  Boolean response;
 
-	public String getTitle() {
-		return title;
-	}
+  public String getTitle() {
+    return title;
+  }
 
-	public String getYear() {
-		return year;
-	}
+  public String getYear() {
+    return year;
+  }
 
-	public String getRated() {
-		return rated;
-	}
+  public String getRated() {
+    return rated;
+  }
 
-	public String getReleased() {
-		return released;
-	}
+  public String getReleased() {
+    return released;
+  }
 
-	public String getRuntime() {
-		return runtime;
-	}
+  public String getRuntime() {
+    return runtime;
+  }
 
-	public String getGenre() {
-		return genre;
-	}
+  public String getGenre() {
+    return genre;
+  }
 
-	public String getDirector() {
-		return director;
-	}
+  public String getDirector() {
+    return director;
+  }
 
-	public String getWriter() {
-		return writer;
-	}
+  public String getWriter() {
+    return writer;
+  }
 
-	public String getActors() {
-		return actors;
-	}
+  public String getActors() {
+    return actors;
+  }
 
-	public String getPlot() {
-		return plot;
-	}
+  public String getPlot() {
+    return plot;
+  }
 
-	public String getLanguage() {
-		return language;
-	}
+  public String getLanguage() {
+    return language;
+  }
 
-	public String getCountry() {
-		return country;
-	}
+  public String getCountry() {
+    return country;
+  }
 
-	public String getAwards() {
-		return awards;
-	}
+  public String getAwards() {
+    return awards;
+  }
 
-	public String getPoster() {
-		return poster;
-	}
+  public String getPoster() {
+    return poster;
+  }
 
-	public List<RatingDto> getRatings() {
-		return ratings;
-	}
+  public List<RatingDto> getRatings() {
+    return ratings;
+  }
 
-	public String getMetascore() {
-		return metascore;
-	}
+  public String getMetascore() {
+    return metascore;
+  }
 
-	public BigDecimal getImdbRating() {
-		return imdbRating;
-	}
+  public BigDecimal getImdbRating() {
+    return imdbRating;
+  }
 
-	public String getImdbVotes() {
-		return imdbVotes;
-	}
+  public String getImdbVotes() {
+    return imdbVotes;
+  }
 
-	public String getImdbId() {
-		return imdbId;
-	}
+  public String getImdbId() {
+    return imdbId;
+  }
 
-	public String getType() {
-		return type;
-	}
+  public String getType() {
+    return type;
+  }
 
-	public String getDvd() {
-		return dvd;
-	}
+  public String getDvd() {
+    return dvd;
+  }
 
-	public String getBoxOffice() {
-		return boxOffice;
-	}
+  public String getBoxOffice() {
+    return boxOffice;
+  }
 
-	public String getProduction() {
-		return production;
-	}
+  public String getProduction() {
+    return production;
+  }
 
-	public String getWebsite() {
-		return website;
-	}
+  public String getWebsite() {
+    return website;
+  }
 
-	public Boolean getResponse() {
-		return response;
-	}
+  public Boolean getResponse() {
+    return response;
+  }
 }

@@ -16,30 +16,26 @@ import reactor.netty.http.client.HttpClient;
 @Configuration
 public class WebClientService {
 
-	private static final int BASE_TIME_OUT = 3000;
-	private static final int OMDB_TIME_OUT = 3000;
+  private static final int BASE_TIME_OUT = 3000;
+  private static final int OMDB_TIME_OUT = 2000;
 
-	@Bean("baseWebClient")
-	public WebClient baseWebClient() {
-		HttpClient httpClient = HttpClient.create().option(ChannelOption.CONNECT_TIMEOUT_MILLIS, BASE_TIME_OUT)
-				.responseTimeout(Duration.ofMillis(BASE_TIME_OUT))
-				.doOnConnected(conn -> conn.addHandlerLast(new ReadTimeoutHandler(BASE_TIME_OUT, TimeUnit.MILLISECONDS))
-						.addHandlerLast(new WriteTimeoutHandler(BASE_TIME_OUT, TimeUnit.MILLISECONDS)));
+  @Bean("baseWebClient")
+  public WebClient baseWebClient() {
+    HttpClient httpClient = HttpClient.create().option(ChannelOption.CONNECT_TIMEOUT_MILLIS, BASE_TIME_OUT)
+        .responseTimeout(Duration.ofMillis(BASE_TIME_OUT))
+        .doOnConnected(conn -> conn.addHandlerLast(new ReadTimeoutHandler(BASE_TIME_OUT, TimeUnit.MILLISECONDS))
+            .addHandlerLast(new WriteTimeoutHandler(BASE_TIME_OUT, TimeUnit.MILLISECONDS)));
 
-		WebClient client = WebClient.builder().clientConnector(new ReactorClientHttpConnector(httpClient)).build();
+    return WebClient.builder().clientConnector(new ReactorClientHttpConnector(httpClient)).build();
+  }
 
-		return client;
-	}
+  @Bean("omdbWebClient")
+  public WebClient omdbWebClient() {
+    HttpClient httpClient = HttpClient.create().option(ChannelOption.CONNECT_TIMEOUT_MILLIS, BASE_TIME_OUT)
+        .responseTimeout(Duration.ofMillis(OMDB_TIME_OUT))
+        .doOnConnected(conn -> conn.addHandlerLast(new ReadTimeoutHandler(OMDB_TIME_OUT, TimeUnit.MILLISECONDS))
+            .addHandlerLast(new WriteTimeoutHandler(OMDB_TIME_OUT, TimeUnit.MILLISECONDS)));
 
-	@Bean("omdbWebClient")
-	public WebClient omdbWebClient() {
-		HttpClient httpClient = HttpClient.create().option(ChannelOption.CONNECT_TIMEOUT_MILLIS, BASE_TIME_OUT)
-				.responseTimeout(Duration.ofMillis(OMDB_TIME_OUT))
-				.doOnConnected(conn -> conn.addHandlerLast(new ReadTimeoutHandler(OMDB_TIME_OUT, TimeUnit.MILLISECONDS))
-						.addHandlerLast(new WriteTimeoutHandler(OMDB_TIME_OUT, TimeUnit.MILLISECONDS)));
-
-		WebClient client = WebClient.builder().clientConnector(new ReactorClientHttpConnector(httpClient)).build();
-
-		return client;
-	}
+    return WebClient.builder().clientConnector(new ReactorClientHttpConnector(httpClient)).build();
+  }
 }
