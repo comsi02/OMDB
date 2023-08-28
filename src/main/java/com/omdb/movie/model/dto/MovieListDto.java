@@ -17,4 +17,10 @@ public class MovieListDto {
 
   @JsonProperty("Response")
   Boolean response;
+  
+  @JsonProperty("mSearch")
+  String mSearch;
+
+  @JsonProperty("mPage")
+  int mPage;
 }

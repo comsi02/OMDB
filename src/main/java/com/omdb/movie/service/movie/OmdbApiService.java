@@ -28,13 +28,16 @@ public class OmdbApiService {
   @Value("${app.config.omdb.api-key}")
   String omdbApiKey;
 
-  public MovieListDto getMovieList(String searchText, int page) {
+  public MovieListDto getMovieList(String search, int page) {
     ResponseEntity<MovieListDto> responseMovieListDto = omdbWebClient.get()
         .uri(uriBuilder -> uriBuilder.scheme("http").host(omdbApiHost).queryParam("apikey", omdbApiKey)
-            .queryParam("s", searchText).queryParam("page", page).build())
+            .queryParam("s", search).queryParam("page", page).build())
         .accept(MediaType.APPLICATION_JSON).retrieve().toEntity(MovieListDto.class).log().block();
 
-    return responseMovieListDto.getBody();
+    MovieListDto movieListDto = responseMovieListDto.getBody();
+    movieListDto.setMSearch(search);
+    movieListDto.setMPage(page);
+    return movieListDto;
   }
 
   public MovieDetailDto getMovieDetail(String movieId) {
