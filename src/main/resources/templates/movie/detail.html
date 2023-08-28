@@ -1,43 +1,48 @@
 <!-- <html lang="en"> -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-	  <div th:if="${movieDetailDto?.getResponse}">
-	  	<div th:text="${movieDetailDto.getTitle}"></div>
-	  	<div th:text="${movieDetailDto.getYear}"></div>
-	  	<div th:text="${movieDetailDto.getReleased}"></div>
-	  	<div th:text="${movieDetailDto.getRuntime}"></div>
-	  	<div th:text="${movieDetailDto.getGenre}"></div>
-	  	<div th:text="${movieDetailDto.getDirector}"></div>
-	  	<div th:text="${movieDetailDto.getActors}"></div>
-	  	<div th:text="${movieDetailDto.getPlot}"></div>
-	  	<div th:text="${movieDetailDto.getLanguage}"></div>
-	  	<div th:text="${movieDetailDto.getCountry}"></div>
-	  	<div th:text="${movieDetailDto.getAwards}"></div>
-	  	<img th:src="${movieDetailDto.getPoster}"></img>
-	  	---------------------<br>
+<div th:if="${movieDetailDto?.getResponse}">
+	<div th:text="${movieDetailDto.getTitle}"></div>
+	<div th:text="${movieDetailDto.getYear}"></div>
+	<div th:text="${movieDetailDto.getReleased}"></div>
+	<div th:text="${movieDetailDto.getRuntime}"></div>
+	<div th:text="${movieDetailDto.getGenre}"></div>
+	<div th:text="${movieDetailDto.getDirector}"></div>
+	<div th:text="${movieDetailDto.getActors}"></div>
+	<div th:text="${movieDetailDto.getPlot}"></div>
+	<div th:text="${movieDetailDto.getLanguage}"></div>
+	<div th:text="${movieDetailDto.getCountry}"></div>
+	<div th:text="${movieDetailDto.getAwards}"></div>
 
-	  	<table>
-	  		<tr th:each="data, iterstat: ${movieDetailDto.getRatings()}">
-	  			<td th:text="${data.getSource}"></td>
-	  			<td th:text="${data.getValue}"></td>
-	  		</tr>
-	  	</table>
-	  	
-	  	---------------------<br>
-	  	<div th:text="${movieDetailDto.getMetascore}"></div>
-	  	<div th:text="${movieDetailDto.getImdbRating}"></div>
-	  	<div th:text="${movieDetailDto.getImdbVotes}"></div>
-	  	<div th:text="${movieDetailDto.getImdbId}"></div>
-	  	<div th:text="${movieDetailDto.getType}"></div>
-	  	<div th:text="${movieDetailDto.getDvd}"></div>
-	  	<div th:text="${movieDetailDto.getBoxOffice}"></div>
-	  	<div th:text="${movieDetailDto.getProduction}"></div>
-	  	<div th:text="${movieDetailDto.getWebsite}"></div>
-	  	<div th:text="${movieDetailDto.getResponse}"></div>
-    </div>
+	<div th:unless="${movieDetailDto.getPoster} == 'N/A'">
+		<img th:src="${movieDetailDto.getPoster}" style="width: 200px; height: 240px"></img>
+	</div>
 
-	  <div th:unless="${movieDetailDto?.getResponse}">
-	  	There is no result
-	  </div>
+	<div th:if="${movieDetailDto.getPoster} == 'N/A'">
+		<img th:src="@{'/static/images/coming-soon.png'}" style="width: 200px; height: 240px"></img>
+	</div>
+
+	<table>
+		<tr th:each="data, iterstat: ${movieDetailDto.getRatings()}">
+			<td th:text="${data.getSource}"></td>
+			<td th:text="${data.getValue}"></td>
+		</tr>
+	</table>
+
+	<div th:text="${movieDetailDto.getMetascore}"></div>
+	<div th:text="${movieDetailDto.getImdbRating}"></div>
+	<div th:text="${movieDetailDto.getImdbVotes}"></div>
+	<div th:text="${movieDetailDto.getImdbId}"></div>
+	<div th:text="${movieDetailDto.getType}"></div>
+	<div th:text="${movieDetailDto.getDvd}"></div>
+	<div th:text="${movieDetailDto.getBoxOffice}"></div>
+	<div th:text="${movieDetailDto.getProduction}"></div>
+	<div th:text="${movieDetailDto.getWebsite}"></div>
+	<div th:text="${movieDetailDto.getResponse}"></div>
+</div>
+
+<div th:unless="${movieDetailDto?.getResponse}">
+	There is no result
+</div>
 
 </html>

@@ -1,41 +1,41 @@
 <!-- <html lang="en"> -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-	  <div th:if="${movieListDto?.getResponse()}">
+<div th:if="${movieListDto?.getResponse()}">
 
-	  <table style="border=1">
-      <tr th:each="data, iterstat: ${movieListDto.getSearch()}">
-      	<td>
-					<a th:href="@{'/movie/detail/'+${data.getImdbId}}">
+	<table style="border=1">
+		<tr th:each="data, iterstat: ${movieListDto.getSearch()}">
+			<td>
+				<a th:href="@{'/movie/detail/'+${data.getImdbId}}">
 
 					<div th:unless="${data.getPoster} == 'N/A'">
-	      		<img th:src="${data.getPoster}" style="width: 200px; height: 240px"></img>
-	      	</div>
+						<img th:src="${data.getPoster}" style="width: 200px; height: 240px"></img>
+					</div>
 
 					<div th:if="${data.getPoster} == 'N/A'">
-	      		<img th:src="@{'/static/images/coming_soon.png'}" style="width: 200px; height: 240px"></img>
-	      	</div>
+						<img th:src="@{'/static/images/coming-soon.png'}" style="width: 200px; height: 240px"></img>
+					</div>
 
-	      	</a>
-	     </td>
-      	<td>
-					<a th:href="@{'/movie/detail/'+${data.getImdbId}}">
-	      	<div th:text="${data.getTitle}"></div>
-	      	</a>
-      	</td>
-      	<td>
-	      	<div th:text="${data.getYear}"></div>
-      	</td>
-      	<td>
-	      	<div th:text="${data.getType}"></div>
-      	</td>
-      </tr>
-      <table>
-      </div>
+				</a>
+			</td>
+			<td>
+				<a th:href="@{'/movie/detail/'+${data.getImdbId}}">
+					<div th:text="${data.getTitle}"></div>
+				</a>
+			</td>
+			<td>
+				<div th:text="${data.getYear}"></div>
+			</td>
+			<td>
+				<div th:text="${data.getType}"></div>
+			</td>
+		</tr>
+		<table>
+</div>
 
 
-	  	<div th:unless="${movieListDto?.getResponse()}">
-	  		There is no result
-	  	</div>
+<div th:unless="${movieListDto?.getResponse()}">
+	There is no result
+</div>
 
 </html>
