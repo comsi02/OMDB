@@ -7,11 +7,21 @@
       <tr th:each="data, iterstat: ${movieListDto.getSearch()}">
       	<td>
 					<a th:href="@{'/movie/detail/'+${data.getImdbId}}">
-	      	<img th:src="${data.getPoster}"></img>
+
+					<div th:unless="${data.getPoster} == 'N/A'">
+	      		<img th:src="${data.getPoster}" style="width: 200px; height: 240px"></img>
+	      	</div>
+
+					<div th:if="${data.getPoster} == 'N/A'">
+	      		<img th:src="@{'/static/images/coming_soon.png'}" style="width: 200px; height: 240px"></img>
+	      	</div>
+
 	      	</a>
 	     </td>
       	<td>
+					<a th:href="@{'/movie/detail/'+${data.getImdbId}}">
 	      	<div th:text="${data.getTitle}"></div>
+	      	</a>
       	</td>
       	<td>
 	      	<div th:text="${data.getYear}"></div>

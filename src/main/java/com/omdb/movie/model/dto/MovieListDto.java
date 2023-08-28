@@ -10,18 +10,19 @@ import lombok.Data;
 public class MovieListDto {
 
   @JsonProperty("Search")
-  List<MovieDetailDto> search;
+  List<MovieBriefDto> search;
 
-  String totalResults;
+  @JsonProperty("totalResults")
+  int totalResults;
 
   @JsonProperty("Response")
   Boolean response;
 
-  public List<MovieDetailDto> getSearch() {
+  public List<MovieBriefDto> getSearch() {
     return search;
   }
 
-  public String getTotalResults() {
+  public int getTotalResults() {
     return totalResults;
   }
 
