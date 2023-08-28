@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.google.gson.Gson;
 import com.omdb.movie.model.dto.MovieDetailDto;
 import com.omdb.movie.model.dto.MovieListDto;
 
@@ -19,9 +18,6 @@ public class OmdbApiService {
 
   @Autowired
   WebClient omdbWebClient;
-
-  @Autowired
-  Gson gson;
 
   @Value("${app.config.omdb.api-scheme}")
   String omdbApiScheme;

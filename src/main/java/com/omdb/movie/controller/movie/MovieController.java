@@ -27,6 +27,8 @@ public class MovieController {
 
     MovieListDto movieListDto = omdbApiService.getMovieList(search, page);
     model.addAttribute("movieListDto", movieListDto);
+    model.addAttribute("mSearch", search);
+    model.addAttribute("mPage", page);
 
     return "movie/list";
   }
