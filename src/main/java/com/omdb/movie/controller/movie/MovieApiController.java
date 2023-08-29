@@ -23,8 +23,9 @@ public class MovieApiController {
   @Autowired
   OmdbApiService omdbApiService;
 
-  private final Gson gson;
-
+  @Autowired
+  Gson gson;
+  
   @GetMapping(value = "/list", produces = MediaType.APPLICATION_JSON_VALUE)
   public String list(@RequestParam(value = "search", defaultValue = "home") String search,
       @RequestParam(value = "page", defaultValue = "1") int page) {
