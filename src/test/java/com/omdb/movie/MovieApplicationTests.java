@@ -60,13 +60,14 @@ class MovieApplicationTests {
   @Test
   public void movieListApiTestWithSearch() throws Exception {
     mvc.perform(MockMvcRequestBuilders.get("/movie/api/list").param("search", searchSucc)).andDo(print())
-        .andExpect(status().isOk()).andExpect(jsonPath("$.mSearch").value(searchSucc));
+        .andExpect(status().isOk()).andExpect(jsonPath("$.paramSearch").value(searchSucc))
+        ;
   }
 
   @Test
   public void movieListApiTestWithPage() throws Exception {
     mvc.perform(MockMvcRequestBuilders.get("/movie/api/list").param("page", pageSucc.toString())).andDo(print())
-        .andExpect(status().isOk()).andExpect(jsonPath("$.mPage").value(pageSucc));
+        .andExpect(status().isOk()).andExpect(jsonPath("$.paramPage").value(pageSucc));
   }
 
   @Test

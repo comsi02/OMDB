@@ -35,8 +35,8 @@ public class OmdbApiService {
         .accept(MediaType.APPLICATION_JSON).retrieve().toEntity(MovieListDto.class).log().block();
 
     MovieListDto movieListDto = responseMovieListDto.getBody();
-    movieListDto.setMSearch(search);
-    movieListDto.setMPage(page);
+    movieListDto.setParamSearch(search);
+    movieListDto.setParamPage(page);
     return movieListDto;
   }
 
